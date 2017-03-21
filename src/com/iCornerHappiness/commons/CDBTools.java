@@ -16,14 +16,6 @@ import java.util.*;
  * Created by 025329 on 2015/9/16.
  */
 public class CDBTools {
-
-    public static void main(String[] args) throws CornerException {
-        ArrayList<PSiteContentView> list = PSiteManager.getSiteContentList(EContent.FOUNDER);
-        for(PSiteContentView view : list){
-            System.out.println(view.getContent());
-        }
-    }
-
     public static Connection getConnection() throws CornerException {
         Connection conn = null;
         System.out.println(new java.util.Date());
@@ -35,6 +27,8 @@ public class CDBTools {
 //            String user = CPropertiesTools.getProperties("USER");
 //            String password = CPropertiesTools.getProperties("PASSWORD");
 //            String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + user + "&password=" + password;
+
+            // for dev
             String jdbcUrl = "jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12164614";
             conn = DriverManager.getConnection(jdbcUrl, "sql12164614", "NSV2gUu7ue");
             conn.setAutoCommit(false);
