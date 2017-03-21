@@ -37,8 +37,8 @@
             <input type="hidden" name='content_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.content}"/>'>
             <input type="hidden" name='contentOrder' value='<c:out value="${view.contentOrder}"/>'>
             <input type="hidden" name='title_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.title}"/>'>
-            <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')">
-            <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="6" cols="80"><c:out value="${view.value}"/></textarea>
+            <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')"><br>
+            <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="6" cols="80" title="content"><c:out value="${view.value}"/></textarea>
             <br>
         </c:forEach>
     </c:if>
@@ -49,8 +49,8 @@
                     <input type="hidden" name='content_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.content}"/>'>
                     <input type="hidden" name='contentOrder' value='<c:out value="${view.contentOrder}"/>'>
                     <input type="text" name='title_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.title}"/>'>
-                    <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')">
-                    <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="2" cols="100"><c:out value="${view.value}"/></textarea>
+                    <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')"><br>
+                    <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="2" cols="100" title="content"><c:out value="${view.value}"/></textarea>
                 </li>
             </c:forEach>
         </ol>
@@ -62,8 +62,8 @@
                     <input type="hidden" name='content_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.content}"/>'>
                     <input type="hidden" name='contentOrder' value='<c:out value="${view.contentOrder}"/>'>
                     <input type="text" name='title_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.title}"/>'>
-                    <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')">
-                    <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="2" cols="100"><c:out value="${view.value}"/></textarea>
+                    <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')"><br>
+                    <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="2" cols="100" title="content"><c:out value="${view.value}"/></textarea>
                 </li>
             </c:forEach>
         </ul>
