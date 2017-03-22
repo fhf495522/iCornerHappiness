@@ -4,14 +4,14 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum EContent {
-    FOUNDER("³Ğ¿ì¤Hªº¸Ü", EContentType.PARAGRAPH),
-    PERSIST("§Ú­Ìªº°í«ù", EContentType.ORDERED),
-    MILESTONE("¤j¨Æ°O", EContentType.UNORDERED),
-    OFFER("³Ğ¿ìÀu´f", EContentType.PARAGRAPH),
-    QUALIFICATION("³ø¦W¸ê®æ", EContentType.ORDERED),
-    DATETYPE("Áp½ËºØÃş", EContentType.ORDERED),
-    DATEFLOW("Áp½Ë¬yµ{", EContentType.ORDERED),
-    NOTICE("ª`·N¨Æ¶µ", EContentType.ORDERED),
+    FOUNDER("å‰µè¾¦äººçš„è©±", EContentType.PARAGRAPH),
+    PERSIST("æˆ‘å€‘çš„å …æŒ", EContentType.ORDERED),
+    MILESTONE("å¤§äº‹è¨˜", EContentType.UNORDERED),
+    OFFER("å‰µè¾¦å„ªæƒ ", EContentType.PARAGRAPH),
+    QUALIFICATION("å ±åè³‡æ ¼", EContentType.ORDERED),
+    DATETYPE("è¯èª¼ç¨®é¡", EContentType.ORDERED),
+    DATEFLOW("è¯èª¼æµç¨‹", EContentType.ORDERED),
+    NOTICE("æ³¨æ„äº‹é …", EContentType.ORDERED),
     ;
 
     private String name;

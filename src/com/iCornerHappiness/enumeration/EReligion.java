@@ -4,13 +4,13 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum EReligion {
-    Religion1("¹D±Ğ"),
-    Religion2("¦ò±Ğ"),
-    Religion3("°ò·ş±Ğ"),
-    Religion4("¤Ñ¥D±Ğ"),
-    Religion5("¥Á¶¡«H¥õ"),
+    Religion1("é“æ•™"),
+    Religion2("ä½›æ•™"),
+    Religion3("åŸºç£æ•™"),
+    Religion4("å¤©ä¸»æ•™"),
+    Religion5("æ°‘é–“ä¿¡ä»°"),
 
-    Religion9("¨ä¥L"),
+    Religion9("å…¶ä»–"),
     ;
 
     EReligion(String name) {

@@ -4,10 +4,10 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum  EEducation {
-    Education1("³Õ¤h"),
-    Education2("ºÓ¤h"),
-    Education3("¤j¾Ç"),
-    Education4("±M¬ì"),
+    Education1("åšå£«"),
+    Education2("ç¢©å£«"),
+    Education3("å¤§å­¸"),
+    Education4("å°ˆç§‘"),
     ;
 
     EEducation(String name) {

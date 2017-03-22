@@ -4,11 +4,12 @@ CREATE TABLE tblsitecontent
   contentorder INT(11)     NOT NULL,
   value        VARCHAR(1000),
   title        VARCHAR(100),
+  memo         VARCHAR(200),
   CONSTRAINT `PRIMARY` PRIMARY KEY (content, contentorder)
 )
   DEFAULT CHARSET = utf8;
 
-CREATE TABLE user
+CREATE TABLE tbluser
 (
   account        INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   username       VARCHAR(20),

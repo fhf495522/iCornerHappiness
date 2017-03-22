@@ -4,18 +4,18 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum  EAstrological {
-    Astro1("Å]½~®y"),
-    Astro2("¤ô²~®y"),
-    Astro3("Âù?®y"),
-    Astro4("¨d¦Ï®y"),
-    Astro5("ª÷¤û®y"),
-    Astro6("Âù¤l®y"),
-    Astro7("¥¨ÃÉ®y"),
-    Astro8("?¤l®y"),
-    Astro9("³B¤k®y"),
-    Astro10("¤Ñ¯¯®y"),
-    Astro11("¤ÑÃÈ®y"),
-    Astro12("®g¤â®y"),
+    Astro1("é­”ç¾¯åº§"),
+    Astro2("æ°´ç“¶åº§"),
+    Astro3("é›™?åº§"),
+    Astro4("ç‰¡ç¾Šåº§"),
+    Astro5("é‡‘ç‰›åº§"),
+    Astro6("é›™å­åº§"),
+    Astro7("å·¨èŸ¹åº§"),
+    Astro8("?å­åº§"),
+    Astro9("è™•å¥³åº§"),
+    Astro10("å¤©ç§¤åº§"),
+    Astro11("å¤©è åº§"),
+    Astro12("å°„æ‰‹åº§"),
     ;
 
     EAstrological(String name) {
@@ -25,13 +25,13 @@ public enum  EAstrological {
 
     public static EAstrological getAstrological(int month, int day) {
         EAstrological[] allAstrological =EAstrological.values();
-        int[] DayArr = {22, 20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22};  // ??¬P®y¤À³Î¤é
+        int[] DayArr = {22, 20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22};  // ??æ˜Ÿåº§åˆ†å‰²æ—¥
         int index = month;
-        // ©Ò¬d?¤é´Á¦b¤À³Î¤é¤§«e¡A¯Á¤Ş-1¡A§_?¤£?
+        // æ‰€æŸ¥?æ—¥æœŸåœ¨åˆ†å‰²æ—¥ä¹‹å‰ï¼Œç´¢å¼•-1ï¼Œå¦?ä¸?
         if (day < DayArr[month - 1]) {
             index = index - 1;
         }
-        // ªğ¦^¯Á¤Ş«ü¦Vªº¬P®ystring
+        // è¿”å›ç´¢å¼•æŒ‡å‘çš„æ˜Ÿåº§string
         return allAstrological[index];
     }
 

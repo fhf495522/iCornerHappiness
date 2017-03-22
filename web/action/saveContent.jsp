@@ -14,6 +14,7 @@
         view.setContentOrder(Integer.valueOf(contentOrder));
         view.setTitle(request.getParameter("title_" + contentOrder));
         view.setValue(request.getParameter("value_" + contentOrder));
+        view.setMemo(request.getParameter("memo_" + contentOrder));
         list.add(view);
     }
     PSiteManager.setSiteContentList(list);

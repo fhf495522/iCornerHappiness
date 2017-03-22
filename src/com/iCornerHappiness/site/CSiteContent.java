@@ -16,12 +16,8 @@ public class CSiteContent {
 
     public ArrayList<CSiteContentView> getSiteContentList(Connection conn, EContent content) throws CommonsException {
         CSqlView queryView = new CSqlView(table);
-        queryView.setQueryFields(
-                CSqlMapping.FLDCONTENT,
-                CSqlMapping.FLDCONTENTORDER,
-                CSqlMapping.FLDTITLE,
-                CSqlMapping.FLDVALUE
-        );
+        // query field (all)
+//        queryView.setQueryFields();
         // where
         queryView.setWhereCondition(CSqlMapping.FLDCONTENT, content.toString());
         // order
@@ -33,6 +29,7 @@ public class CSiteContent {
         CSqlView updateView = new CSqlView(table);
         updateView.setFieldView(CSqlMapping.FLDTITLE, view.getTitle());
         updateView.setFieldView(CSqlMapping.FLDVALUE, view.getValue());
+        updateView.setFieldView(CSqlMapping.FLDMEMO, view.getMemo());
         updateView.setWhereCondition(CSqlMapping.FLDCONTENT, view.getContent().toString());
         updateView.setWhereCondition(CSqlMapping.FLDCONTENTORDER, view.getContentOrder());
         CSqlTools.updateSql(conn, updateView);

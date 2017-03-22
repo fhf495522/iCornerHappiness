@@ -16,6 +16,7 @@ public class CSiteContentView extends CView {
     private int contentOrder;
     private String title;
     private String value;
+    private String memo;
 
     public EContent getContent() {
         return content;
@@ -49,11 +50,20 @@ public class CSiteContentView extends CView {
         this.value = value;
     }
 
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
     public CSiteContentView decodeResult(ResultSet resultSet) throws SQLException {
         setContent(EContent.valueOf(resultSet.getString(CSqlMapping.FLDCONTENT)));
         setContentOrder(resultSet.getInt(CSqlMapping.FLDCONTENTORDER));
         setTitle(resultSet.getString(CSqlMapping.FLDTITLE));
         setValue(resultSet.getString(CSqlMapping.FLDVALUE));
+        setMemo(resultSet.getString(CSqlMapping.FLDMEMO));
         return this;
     }
 }

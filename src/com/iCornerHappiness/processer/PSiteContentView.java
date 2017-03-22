@@ -1,7 +1,6 @@
 package com.iCornerHappiness.processer;
 
 import com.iCornerHappiness.enumeration.EContent;
-import com.iCornerHappiness.enumeration.EContentType;
 import com.iCornerHappiness.site.CSiteContentView;
 
 /**
@@ -52,5 +51,13 @@ public class PSiteContentView {
 
     public String getValue() {
         return view.getValue();
+    }
+
+    public String getMemo() {
+        return view.getMemo();
+    }
+
+    public void setMemo(String memo) {
+        view.setMemo(memo);
     }
 }

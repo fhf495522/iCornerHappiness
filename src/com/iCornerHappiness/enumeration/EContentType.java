@@ -4,9 +4,9 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum EContentType {
-    PARAGRAPH("¬q¸¨"),
-    ORDERED("¦³§Ç¸¹¦Cªí"),
-    UNORDERED("µL§Ç¸¹¦Cªí"),;
+    PARAGRAPH("æ®µè½"),
+    ORDERED("æœ‰åºè™Ÿåˆ—è¡¨"),
+    UNORDERED("ç„¡åºè™Ÿåˆ—è¡¨"),;
 
     private String name;
     EContentType(String name) {

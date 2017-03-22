@@ -4,18 +4,18 @@ package com.iCornerHappiness.enumeration;
  * Created by user on 2017/3/10.
  */
 public enum EZodiac {
-    Zodiac1("№«"),
-    Zodiac2("¤ы"),
-    Zodiac3("Єк"),
-    Zodiac4("ЁЯ"),
-    Zodiac5("Аs"),
-    Zodiac6("іD"),
-    Zodiac7("°Ё"),
-    Zodiac8("¦П"),
-    Zodiac9("µU"),
-    Zodiac10("Вы"),
-    Zodiac11("ЄЇ"),
-    Zodiac12("ЅЮ"),
+    Zodiac1("йј "),
+    Zodiac2("з‰›"),
+    Zodiac3("и™Ћ"),
+    Zodiac4("е…”"),
+    Zodiac5("йѕЌ"),
+    Zodiac6("и›‡"),
+    Zodiac7("й¦¬"),
+    Zodiac8("зѕЉ"),
+    Zodiac9("зЊґ"),
+    Zodiac10("й›ћ"),
+    Zodiac11("з‹—"),
+    Zodiac12("и±¬"),
     ;
 
     EZodiac(String name) {

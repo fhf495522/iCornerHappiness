@@ -1,16 +1,8 @@
 package com.iCornerHappiness.commons;
 
-import com.iCornerHappiness.enumeration.EContent;
 import com.iCornerHappiness.exception.CornerException;
-import com.iCornerHappiness.processer.PSiteContentView;
-import com.iCornerHappiness.processer.PSiteManager;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.*;
-import java.util.*;
 
 /**
  * Created by 025329 on 2015/9/16.
@@ -18,7 +10,6 @@ import java.util.*;
 public class CDBTools {
     public static Connection getConnection() throws CornerException {
         Connection conn = null;
-        System.out.println(new java.util.Date());
         try {
             Class.forName("com.mysql.jdbc.Driver");
 //            String host = CPropertiesTools.getProperties("HOST");
@@ -29,10 +20,9 @@ public class CDBTools {
 //            String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + user + "&password=" + password;
 
             // for dev
-            String jdbcUrl = "jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12164614";
-            conn = DriverManager.getConnection(jdbcUrl, "sql12164614", "NSV2gUu7ue");
+            String jdbcUrl = "jdbc:mysql://localhost:3306/corner";
+            conn = DriverManager.getConnection(jdbcUrl, "fhf", "NSV2gUu7ue");
             conn.setAutoCommit(false);
-            System.out.println(new java.util.Date());
 
         } catch (SQLException e) {
             e.printStackTrace();

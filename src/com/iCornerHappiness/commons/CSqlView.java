@@ -34,7 +34,7 @@ public class CSqlView {
     }
 
     protected boolean isQueryAll() {
-        return queryFields.length == 0;
+        return queryFields==null || queryFields.length == 0;
     }
 
     public ArrayList<CSqlFieldView> getFieldViews() {

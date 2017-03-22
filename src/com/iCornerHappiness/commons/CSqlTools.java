@@ -1,5 +1,6 @@
 package com.iCornerHappiness.commons;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -44,10 +45,10 @@ public class CSqlTools {
         ArrayList list = new ArrayList<CView>();
         try {
             StringBuffer strSql = new StringBuffer();
-            strSql.append(" SELECT 1");
             if (sqlQueryView.isQueryAll()) {
-                strSql.append(" ,* ");
+                strSql.append(" SELECT * ");
             } else {
+                strSql.append(" SELECT 1");
                 for (String queryField : sqlQueryView.getQueryFields()) {
                     strSql.append(",").append(queryField);
                 }
@@ -86,7 +87,7 @@ public class CSqlTools {
     public static void insertSql(Connection conn, CSqlView sqlQueryView) throws CommonsException {
         PreparedStatement stmt = null;
         try {
-            // ·s¼W
+            // æ–°å¢ž
             StringBuffer strSql = new StringBuffer();
             strSql.append(" INSERT INTO " + sqlQueryView.getTableName() + " ( " + getFieldsStr(sqlQueryView.getFieldViews()) + " ) ");
             strSql.append(" VALUES ( ");
@@ -116,7 +117,7 @@ public class CSqlTools {
     public static void updateSql(Connection conn, CSqlView updateView) throws CommonsException {
         PreparedStatement stmt = null;
         try {
-            // ·s¼W
+            // æ–°å¢ž
             StringBuffer strSql = new StringBuffer();
             strSql.append(" UPDATE " + updateView.getTableName() + " SET ");
             int idx = 0;

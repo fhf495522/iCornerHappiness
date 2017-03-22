@@ -2,7 +2,7 @@ package com.iCornerHappiness.db;
 
 
 /**
- * ¸ê®Æ®w¹ïÀ³
+ * è³‡æ–™åº«å°æ‡‰
  * Created by 025329 on 2015/9/16.
  */
 public class CSqlMapping {
@@ -18,5 +18,5 @@ public class CSqlMapping {
     public final static String FLDCONTENTORDER = "contentorder";
     public final static String FLDTITLE = "title";
     public final static String FLDVALUE = "value";
-
+    public final static String FLDMEMO = "memo";
 }

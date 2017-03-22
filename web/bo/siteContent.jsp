@@ -51,6 +51,7 @@
                     <input type="text" name='title_<c:out value="${view.contentOrder}"/>' value='<c:out value="${view.title}"/>'>
                     <input type="button" value="刪除" onclick="deleteContent('<c:out value="${view.contentOrder}"/>')"><br>
                     <textarea name='value_<c:out value="${view.contentOrder}"/>' rows="2" cols="100" title="content"><c:out value="${view.value}"/></textarea>
+                    <textarea name='memo_<c:out value="${view.contentOrder}"/>' rows="2" cols="100" title="memo"><c:out value="${view.memo}"/></textarea>
                 </li>
             </c:forEach>
         </ol>

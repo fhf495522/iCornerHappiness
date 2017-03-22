@@ -13,45 +13,45 @@ import java.util.Date;
  * Created by user on 2017/3/10.
  */
 public class CUserView extends CView {
-    private int account;                // ·|­û½s¸¹
-    private String userName;            // ©m¦W
-    private String userId;              // ¨­¤ÀÃÒ¦r¸¹
-    private String password;            // ±K½X
-    private EGender gender;             // ©Ê§O
-    private String phone;               // ¦í®a¹q¸Ü
-    private String mobile;              // ¤â¾÷¸¹½X
-    private String address;             // ²{©~¦a§}
-    private String home;                // ¤áÄy¦a§}
-    private Date birthday;              // ¥X¥Í¦~¤ë¤é(¦~ÄÖ.¬P®y)
-    private int height;                 // ¨­°ª
-    private int weight;                 // Åé­«
-    private EBloodType bloodType;       // ¦å«¬
-    private boolean isSmoking;          // ¬O§_§lµÒ
-    private boolean isVegetarian;       // ¬O§_¦Y¯À
-    private boolean isDrinking;         // ¬O§_¶¼°s
-    private EZodiac zodiac;             // ¥Í¨v
-    private EReligion religion;         // ©v±Ğ«H¥õ
-    private EEducation education;       // ³Ì°ª¾Ç¾ú
-    private String graduateSchool;      // ²¦·~¾Ç®Õ
-    private String graduateDepart;      // ²¦·~¬ì¨t
-    private ECareer career;             // Â¾·~§O
-    private ECity workCity;             // ¤u§@¦a
-    private String company;             // ªA°È¾÷Ãö
-    private String position;            // Â¾ºÙ
-    private boolean isLiveTogether;     // ¬O§_»P¤½±C¦P¦í
+    private int account;                // æœƒå“¡ç·¨è™Ÿ
+    private String userName;            // å§“å
+    private String userId;              // èº«åˆ†è­‰å­—è™Ÿ
+    private String password;            // å¯†ç¢¼
+    private EGender gender;             // æ€§åˆ¥
+    private String phone;               // ä½å®¶é›»è©±
+    private String mobile;              // æ‰‹æ©Ÿè™Ÿç¢¼
+    private String address;             // ç¾å±…åœ°å€
+    private String home;                // æˆ¶ç±åœ°å€
+    private Date birthday;              // å‡ºç”Ÿå¹´æœˆæ—¥(å¹´é½¡.æ˜Ÿåº§)
+    private int height;                 // èº«é«˜
+    private int weight;                 // é«”é‡
+    private EBloodType bloodType;       // è¡€å‹
+    private boolean isSmoking;          // æ˜¯å¦å¸è¸
+    private boolean isVegetarian;       // æ˜¯å¦åƒç´ 
+    private boolean isDrinking;         // æ˜¯å¦é£²é…’
+    private EZodiac zodiac;             // ç”Ÿè‚–
+    private EReligion religion;         // å®—æ•™ä¿¡ä»°
+    private EEducation education;       // æœ€é«˜å­¸æ­·
+    private String graduateSchool;      // ç•¢æ¥­å­¸æ ¡
+    private String graduateDepart;      // ç•¢æ¥­ç§‘ç³»
+    private ECareer career;             // è·æ¥­åˆ¥
+    private ECity workCity;             // å·¥ä½œåœ°
+    private String company;             // æœå‹™æ©Ÿé—œ
+    private String position;            // è·ç¨±
+    private boolean isLiveTogether;     // æ˜¯å¦èˆ‡å…¬å©†åŒä½
     private String lineId;              // Line Id
     private String email;               // email
-    private String hobbies;             // ¿³½ì
-    private String personality;         // ¦Û¨­­Ó©Ê
-    private String advantage;           // ¦Û¨­ÀuÂI
-    private String disadvantages;       // ¦Û¨­¯ÊÂI
-    private String prerequisitesDesc;   // ¥²³Æ±ø¥ó´y­z
-    private String idealConditionDesc;  // ²z·Q±ø¥ó´y­z
-    private String otherDesc;           // ¨ä¥L´y­z
-    private Date createDate;            // «Ø¥ß¤é´Á
-    private Date modifiedDate;          // ­×§ï¤é´Á
-    private String modifiedBy;          // ­×§ï¤H­û
-    private String image;               // ·Ó¤ù   // todo
+    private String hobbies;             // èˆˆè¶£
+    private String personality;         // è‡ªèº«å€‹æ€§
+    private String advantage;           // è‡ªèº«å„ªé»
+    private String disadvantages;       // è‡ªèº«ç¼ºé»
+    private String prerequisitesDesc;   // å¿…å‚™æ¢ä»¶æè¿°
+    private String idealConditionDesc;  // ç†æƒ³æ¢ä»¶æè¿°
+    private String otherDesc;           // å…¶ä»–æè¿°
+    private Date createDate;            // å»ºç«‹æ—¥æœŸ
+    private Date modifiedDate;          // ä¿®æ”¹æ—¥æœŸ
+    private String modifiedBy;          // ä¿®æ”¹äººå“¡
+    private String image;               // ç…§ç‰‡   // todo
 
     public int getAccount() {
         return account;
