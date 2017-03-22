@@ -23,10 +23,8 @@ public class PUserManager {
         PUserView pUserView = null;
         try {
             conn = CDBTools.getConnection();
-
             CUserView cUserView = new CUser().login(conn, userId, password);
             pUserView = new PUserView(cUserView);
-
 
         } catch (CornerException e) {
             e.printStackTrace();
@@ -42,9 +40,9 @@ public class PUserManager {
         Connection conn = null;
         try {
             conn = CDBTools.getConnection();
-            new CUser().addUser(conn, pUserView);
+            new CUser().addUser(conn, pUserView.getUserView());
             conn.commit();
-        } catch (CornerException | SQLException e) {
+        } catch (CommonsException | CornerException | SQLException e) {
             e.printStackTrace();
         } finally {
             CDBTools.closeConnection(conn);
@@ -55,23 +53,20 @@ public class PUserManager {
     public static ArrayList<PUserView> getUserList(PUserQueryView pUserQueryView){
         Connection conn = null;
         ArrayList<PUserView> pUserList = null;
-//        try {
-//            conn = CDBTools.getConnection();
-//            ArrayList<PUserView> PUserViews = new PUserView().getSiteContentList(conn, pUserQueryView);
-//            if (PUserViews!=null && PUserViews.size()!=0){
-//                pUserList = new ArrayList<>();
-//                for (PUserView cView : PUserViews){
-//                    pUserList.add(new PSiteContentView(cView));
-//                }
-//            }
-//        } catch (CommonsException | CornerException e) {
-//            e.printStackTrace();
-//        } finally {
-//            CDBTools.closeConnection(conn);
-//        }
-//        return pUserList;
-
-
-        return null;
+        try {
+            conn = CDBTools.getConnection();
+            ArrayList<CUserView> cUserViews = new CUser().getUserList(conn, pUserQueryView.getView());
+            if (cUserViews!=null && cUserViews.size()!=0){
+                pUserList = new ArrayList<>();
+                for (CUserView cView : cUserViews){
+                    pUserList.add(new PUserView(cView));
+                }
+            }
+        } catch (CornerException e) {
+            e.printStackTrace();
+        } finally {
+            CDBTools.closeConnection(conn);
+        }
+        return pUserList;
     }
 }

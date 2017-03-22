@@ -19,4 +19,34 @@ public class CSqlMapping {
     public final static String FLDTITLE = "title";
     public final static String FLDVALUE = "value";
     public final static String FLDMEMO = "memo";
+
+    public final static String FLDACCOUNT = "account";
+    public final static String FLDUSERNAME = "username";
+    public final static String FLDUSEDID = "userld";
+    public final static String FLDPASSWORD = "password";
+    public final static String FLDGENDER = "gender";
+    public final static String FLDPHONE = "phone";
+    public final static String FLDMOBILE = "mobile";
+    public final static String FLDADDRESS = "address";
+    public final static String FLDHOME = "home";
+    public final static String FLDBIRTHDAT = "birthday" ;
+    public final static String FLDHEIGHT = "height";
+    public final static String FLDWEIGHT = "weight";
+    public final static String FLDBLOODTYPE = "bloodtype";
+    public final static String FLDISSMOKING = "issmoking";
+    public final static String FLDISVEGETARIAN = "isvegetarian";
+    public final static String FLDZODIAC = "zodiac";
+    public final static String FLDRELIGION = "religion";
+    public final static String FLDEDUCATION = "education";
+    public final static String FLDGRADUATESCHOOL = "graduateschool";
+    public final static String FLDGRADUATEDEPART = "graduatedepart";
+    public final static String FLDCAREER = "career";
+    public final static String FLDWORKCITY = "workcity";
+    public final static String FLDCOMPANY = "company";
+    public final static String FLDPOSITION = "position";
+    public final static String FLDISLIVETOGETHER = "islivetogether";
+    public final static String FLDLINEID = "lineid";
+    public final static String FLDEMAIL = "email";
+    public final static String FLDHOBBIES = "hobbies";
+
 }
