@@ -25,8 +25,12 @@ public class PUserManager {
             conn = CDBTools.getConnection();
             CUserView cUserView = new CUser().login(conn, userId, password);
             pUserView = new PUserView(cUserView);
-
-        } catch (CornerException e) {
+            if (cUserView!=null){
+                pUserView.setLoginSuccess(true);
+            }else {
+                pUserView.setLoginSuccess(false);
+            }
+        } catch (CommonsException | CornerException e) {
             e.printStackTrace();
         } finally {
             CDBTools.closeConnection(conn);

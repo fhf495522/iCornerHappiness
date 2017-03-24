@@ -1,8 +1,6 @@
 package com.iCornerHappiness.user;
 
-import com.iCornerHappiness.commons.CSqlTools;
-import com.iCornerHappiness.commons.CSqlView;
-import com.iCornerHappiness.commons.CommonsException;
+import com.iCornerHappiness.commons.*;
 import com.iCornerHappiness.db.CSqlMapping;
 import com.iCornerHappiness.processer.PUserQueryView;
 import com.iCornerHappiness.processer.PUserView;
@@ -14,15 +12,24 @@ import java.util.ArrayList;
  * Created by user on 2017/3/16.
  */
 public class CUser {
-    private final static String tbluser = CSqlMapping.TBLUSER;
-    public CUserView login(Connection conn, String userId, String password) {
-        
-        
-        return null;
+    private final static String table = CSqlMapping.TBLUSER;
+    Class obj = CUserView.class;
+
+    public CUserView login(Connection conn, String userId, String password) throws CommonsException {
+        CUserView cUserView;
+        CSqlView queryView = new CSqlView(table);
+        // query field (all)
+//        queryView.setQueryFields();
+        // where
+        queryView.setWhereCondition(CSqlMapping.FLDUSEDID, userId);
+        queryView.setWhereCondition(CSqlMapping.FLDPASSWORD, password);
+        ArrayList<CUserView> cUserViews = CSqlTools.selectList(obj, conn, queryView);
+        cUserView = cUserViews.get(0);
+        return cUserView;
     }
 
     public void addUser(Connection conn, CUserView cUserView) throws CommonsException {
-        CSqlView insertView = new CSqlView(tbluser);
+        CSqlView insertView = new CSqlView(table);
         insertView.setFieldView(CSqlMapping.FLDCONTENT, cUserView.toString());
         CSqlTools.insertSql(conn, insertView);
 
