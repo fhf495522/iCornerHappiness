@@ -35,6 +35,7 @@ public class CSqlMapping {
     public final static String FLDBLOODTYPE = "bloodtype";
     public final static String FLDISSMOKING = "issmoking";
     public final static String FLDISVEGETARIAN = "isvegetarian";
+    public final static String FLDISDRINKING = "isdrinking";
     public final static String FLDZODIAC = "zodiac";
     public final static String FLDRELIGION = "religion";
     public final static String FLDEDUCATION = "education";

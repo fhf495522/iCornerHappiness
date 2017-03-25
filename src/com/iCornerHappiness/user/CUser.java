@@ -30,9 +30,36 @@ public class CUser {
 
     public void addUser(Connection conn, CUserView cUserView) throws CommonsException {
         CSqlView insertView = new CSqlView(table);
-        insertView.setFieldView(CSqlMapping.FLDCONTENT, cUserView.toString());
+        insertView.setFieldView(CSqlMapping.FLDACCOUNT, cUserView.getAccount());
+        insertView.setFieldView(CSqlMapping.FLDUSERNAME, cUserView.getUserName());
+        insertView.setFieldView(CSqlMapping.FLDUSEDID, cUserView.getUserId());
+        insertView.setFieldView(CSqlMapping.FLDPASSWORD, cUserView.getPassword());
+        insertView.setFieldView(CSqlMapping.FLDGENDER, cUserView.getGender().toString());
+        insertView.setFieldView(CSqlMapping.FLDPHONE, cUserView.getPhone());
+        insertView.setFieldView(CSqlMapping.FLDMOBILE, cUserView.getMobile());
+        insertView.setFieldView(CSqlMapping.FLDADDRESS, cUserView.getAddress());
+        insertView.setFieldView(CSqlMapping.FLDHOME, cUserView.getHome());
+        insertView.setFieldView(CSqlMapping.FLDBIRTHDAT, cUserView.getBirthday().toString());
+        insertView.setFieldView(CSqlMapping.FLDHEIGHT, cUserView.getHeight());
+        insertView.setFieldView(CSqlMapping.FLDWEIGHT, cUserView.getWeight());
+        insertView.setFieldView(CSqlMapping.FLDBLOODTYPE, cUserView.getBloodType().toString());
+        insertView.setFieldView(CSqlMapping.FLDISSMOKING, String.valueOf(cUserView.isSmoking()));
+        insertView.setFieldView(CSqlMapping.FLDISVEGETARIAN, String.valueOf(cUserView.isVegetarian()));
+        insertView.setFieldView(CSqlMapping.FLDISDRINKING, String.valueOf(cUserView.isDrinking()));
+        insertView.setFieldView(CSqlMapping.FLDZODIAC, cUserView.getZodiac().toString());
+        insertView.setFieldView(CSqlMapping.FLDRELIGION, cUserView.getReligion().toString());
+        insertView.setFieldView(CSqlMapping.FLDEDUCATION, cUserView.getEducation().toString());
+        insertView.setFieldView(CSqlMapping.FLDGRADUATESCHOOL, cUserView.getGraduateSchool());
+        insertView.setFieldView(CSqlMapping.FLDGRADUATEDEPART, cUserView.getGraduateDepart());
+        insertView.setFieldView(CSqlMapping.FLDCAREER, cUserView.getCareer().toString());
+        insertView.setFieldView(CSqlMapping.FLDWORKCITY, cUserView.getWorkCity().toString());
+        insertView.setFieldView(CSqlMapping.FLDCOMPANY, cUserView.getCompany());
+        insertView.setFieldView(CSqlMapping.FLDPOSITION, cUserView.getPosition());
+        insertView.setFieldView(CSqlMapping.FLDISLIVETOGETHER, String.valueOf(cUserView.isLiveTogether()));
+        insertView.setFieldView(CSqlMapping.FLDLINEID, cUserView.getLineId());
+        insertView.setFieldView(CSqlMapping.FLDEMAIL, cUserView.getEmail());
+        insertView.setFieldView(CSqlMapping.FLDHOBBIES, cUserView.getHobbies());
         CSqlTools.insertSql(conn, insertView);
-
     }
 
 
