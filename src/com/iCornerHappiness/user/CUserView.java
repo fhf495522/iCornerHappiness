@@ -1,6 +1,8 @@
 package com.iCornerHappiness.user;
 
+import com.iCornerHappiness.commons.CSqlTools;
 import com.iCornerHappiness.commons.CView;
+import com.iCornerHappiness.db.CSqlMapping;
 import com.iCornerHappiness.enumeration.*;
 import com.iCornerHappiness.exception.CornerException;
 
@@ -393,14 +395,36 @@ public class CUserView extends CView {
     }
 
     @Override
-    public CView decodeResult(ResultSet resultSet) throws CornerException {
-        try {
-            this.setAccount(resultSet.getInt("account"));
-
-
-        } catch (SQLException e) {
-            throw new CornerException("decodeResult Exception");
-        }
-        return null;
+    public CUserView decodeResult(ResultSet resultSet) throws SQLException {
+        setAccount(resultSet.getInt(CSqlMapping.FLDACCOUNT));
+        setUserName(resultSet.getNString(CSqlMapping.FLDUSERNAME));
+        setUserId(resultSet.getString(CSqlMapping.FLDUSEDID));
+        setPassword(resultSet.getString(CSqlMapping.FLDPASSWORD));
+        setGender(EGender.valueOf(resultSet.getString(CSqlMapping.FLDGENDER)));
+        setPhone(resultSet.getString(CSqlMapping.FLDPHONE));
+        setMobile(resultSet.getString(CSqlMapping.FLDMOBILE));
+        setAddress(resultSet.getString(CSqlMapping.FLDADDRESS));
+        setHome(resultSet.getString(CSqlMapping.FLDHOME));
+        setBirthday(resultSet.getDate(CSqlMapping.FLDBIRTHDAT));
+        setHeight(resultSet.getInt(CSqlMapping.FLDHEIGHT));
+        setWeight(resultSet.getInt(CSqlMapping.FLDWEIGHT));
+        setBloodType(EBloodType.valueOf(resultSet.getString(CSqlMapping.FLDBLOODTYPE)));
+        setSmoking(resultSet.getBoolean(CSqlMapping.FLDISSMOKING));
+        setVegetarian(resultSet.getBoolean(CSqlMapping.FLDISVEGETARIAN));
+        setDrinking(resultSet.getBoolean(CSqlMapping.FLDISDRINKING));
+        setZodiac(EZodiac.valueOf(resultSet.getString(CSqlMapping.FLDZODIAC)));
+        setReligion(EReligion.valueOf(resultSet.getString(CSqlMapping.FLDRELIGION)));
+        setEducation(EEducation.valueOf(resultSet.getString(CSqlMapping.FLDEDUCATION)));
+        setGraduateSchool(resultSet.getString(CSqlMapping.FLDGRADUATESCHOOL));
+        setGraduateDepart(resultSet.getString(CSqlMapping.FLDGRADUATEDEPART));
+        setCareer(ECareer.valueOf(resultSet.getString(CSqlMapping.FLDCAREER)));
+        setWorkCity(ECity.valueOf(resultSet.getString(CSqlMapping.FLDWORKCITY)));
+        setCompany(resultSet.getString(CSqlMapping.FLDCOMPANY));
+        setPosition(resultSet.getString(CSqlMapping.FLDPOSITION));
+        setLiveTogether(resultSet.getBoolean(CSqlMapping.FLDISLIVETOGETHER));
+        setLineId(resultSet.getString(CSqlMapping.FLDLINEID));
+        setEmail(resultSet.getString(CSqlMapping.FLDEMAIL));
+        setHobbies(resultSet.getString(CSqlMapping.FLDHOBBIES));
+        return this;
     }
 }

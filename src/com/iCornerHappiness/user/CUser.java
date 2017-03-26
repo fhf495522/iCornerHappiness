@@ -24,7 +24,11 @@ public class CUser {
         queryView.setWhereCondition(CSqlMapping.FLDUSEDID, userId);
         queryView.setWhereCondition(CSqlMapping.FLDPASSWORD, password);
         ArrayList<CUserView> cUserViews = CSqlTools.selectList(obj, conn, queryView);
-        cUserView = cUserViews.get(0);
+        if (cUserViews.size() == 0){
+            cUserView = null;
+        } else {
+            cUserView = cUserViews.get(0);
+        }
         return cUserView;
     }
 
@@ -39,13 +43,13 @@ public class CUser {
         insertView.setFieldView(CSqlMapping.FLDMOBILE, cUserView.getMobile());
         insertView.setFieldView(CSqlMapping.FLDADDRESS, cUserView.getAddress());
         insertView.setFieldView(CSqlMapping.FLDHOME, cUserView.getHome());
-        insertView.setFieldView(CSqlMapping.FLDBIRTHDAT, cUserView.getBirthday().toString());
+        insertView.setFieldView(CSqlMapping.FLDBIRTHDAT, CDateTools.getStrDate(cUserView.getBirthday()));
         insertView.setFieldView(CSqlMapping.FLDHEIGHT, cUserView.getHeight());
         insertView.setFieldView(CSqlMapping.FLDWEIGHT, cUserView.getWeight());
         insertView.setFieldView(CSqlMapping.FLDBLOODTYPE, cUserView.getBloodType().toString());
-        insertView.setFieldView(CSqlMapping.FLDISSMOKING, String.valueOf(cUserView.isSmoking()));
-        insertView.setFieldView(CSqlMapping.FLDISVEGETARIAN, String.valueOf(cUserView.isVegetarian()));
-        insertView.setFieldView(CSqlMapping.FLDISDRINKING, String.valueOf(cUserView.isDrinking()));
+        insertView.setFieldView(CSqlMapping.FLDISSMOKING, Boolean.valueOf(cUserView.isSmoking()).compareTo(false));
+        insertView.setFieldView(CSqlMapping.FLDISVEGETARIAN, Boolean.valueOf(cUserView.isVegetarian()).compareTo(false));
+        insertView.setFieldView(CSqlMapping.FLDISDRINKING, Boolean.valueOf(cUserView.isDrinking()).compareTo(false));
         insertView.setFieldView(CSqlMapping.FLDZODIAC, cUserView.getZodiac().toString());
         insertView.setFieldView(CSqlMapping.FLDRELIGION, cUserView.getReligion().toString());
         insertView.setFieldView(CSqlMapping.FLDEDUCATION, cUserView.getEducation().toString());
@@ -55,7 +59,7 @@ public class CUser {
         insertView.setFieldView(CSqlMapping.FLDWORKCITY, cUserView.getWorkCity().toString());
         insertView.setFieldView(CSqlMapping.FLDCOMPANY, cUserView.getCompany());
         insertView.setFieldView(CSqlMapping.FLDPOSITION, cUserView.getPosition());
-        insertView.setFieldView(CSqlMapping.FLDISLIVETOGETHER, String.valueOf(cUserView.isLiveTogether()));
+        insertView.setFieldView(CSqlMapping.FLDISLIVETOGETHER, Boolean.valueOf(cUserView.isLiveTogether()).compareTo(false));
         insertView.setFieldView(CSqlMapping.FLDLINEID, cUserView.getLineId());
         insertView.setFieldView(CSqlMapping.FLDEMAIL, cUserView.getEmail());
         insertView.setFieldView(CSqlMapping.FLDHOBBIES, cUserView.getHobbies());

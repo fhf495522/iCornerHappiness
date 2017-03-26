@@ -22,7 +22,7 @@ public class CSqlMapping {
 
     public final static String FLDACCOUNT = "account";
     public final static String FLDUSERNAME = "username";
-    public final static String FLDUSEDID = "userld";
+    public final static String FLDUSEDID = "userId";
     public final static String FLDPASSWORD = "password";
     public final static String FLDGENDER = "gender";
     public final static String FLDPHONE = "phone";
