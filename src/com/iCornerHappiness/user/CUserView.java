@@ -1,5 +1,6 @@
 package com.iCornerHappiness.user;
 
+import com.iCornerHappiness.commons.CMd5Tools;
 import com.iCornerHappiness.commons.CSqlTools;
 import com.iCornerHappiness.commons.CView;
 import com.iCornerHappiness.db.CSqlMapping;
@@ -84,7 +85,7 @@ public class CUserView extends CView {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = CMd5Tools.encode(password);
     }
 
     public EGender getGender() {

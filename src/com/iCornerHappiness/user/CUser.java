@@ -22,7 +22,7 @@ public class CUser {
 //        queryView.setQueryFields();
         // where
         queryView.setWhereCondition(CSqlMapping.FLDUSEDID, userId);
-        queryView.setWhereCondition(CSqlMapping.FLDPASSWORD, password);
+        queryView.setWhereCondition(CSqlMapping.FLDPASSWORD, CMd5Tools.encode(password));
         ArrayList<CUserView> cUserViews = CSqlTools.selectList(obj, conn, queryView);
         if (cUserViews.size() == 0){
             cUserView = null;
