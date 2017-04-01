@@ -10,7 +10,12 @@ public enum  EEducation {
     Education4("專科"),
     ;
 
+    private String name;
     EEducation(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 }

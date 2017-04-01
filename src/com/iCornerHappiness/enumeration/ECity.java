@@ -24,7 +24,12 @@ public enum ECity {
 
     City99("其他"),;
 
+    private String name;
     ECity(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 }

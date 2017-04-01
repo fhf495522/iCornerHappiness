@@ -29,7 +29,12 @@ public enum EHobby {
     Hobby99("其他"),
     ;
 
+    private String name;
     EHobby(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 }

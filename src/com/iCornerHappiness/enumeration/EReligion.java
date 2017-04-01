@@ -13,8 +13,13 @@ public enum EReligion {
     Religion9("其他"),
     ;
 
+    private String name;
     EReligion(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 
 }

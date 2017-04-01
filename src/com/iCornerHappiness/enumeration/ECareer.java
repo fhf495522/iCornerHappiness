@@ -32,7 +32,12 @@ public enum ECareer {
     Career99("其他"),
     ;
 
+    private String name;
     ECareer(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 }

@@ -19,9 +19,9 @@ public class CDBTools {
 //            String password = CPropertiesTools.getProperties("PASSWORD");
 //            String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + user + "&password=" + password;
 
-            // for dev
-            String jdbcUrl = "jdbc:mysql://localhost:3306/corner";
-            conn = DriverManager.getConnection(jdbcUrl, "fhf", "NSV2gUu7ue");
+            // for dev google cloud mysql
+            String jdbcUrl = "jdbc:mysql://35.185.144.117:3306/corner";
+            conn = DriverManager.getConnection(jdbcUrl, "root", "fhf495522");
             conn.setAutoCommit(false);
 
         } catch (SQLException e) {

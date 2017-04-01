@@ -18,7 +18,12 @@ public enum EZodiac {
     Zodiac12("豬"),
     ;
 
+    private String name;
     EZodiac(String name) {
+        this.name = name;
+    }
 
+    public String getName(){
+        return name;
     }
 }
