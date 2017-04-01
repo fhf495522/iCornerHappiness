@@ -2,6 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <script src="assets/js/jquery.mindownload.js"></script>
     <title>iの轉角幸福&nbsp;&nbsp;i&nbsp;の&nbsp;Corner of happiness - Urban by TEMPLATED</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
@@ -31,9 +32,17 @@
         <li><a href="#" onclick="changePage('notice')">注意事項</a></li>
         <li><a href="#" onclick="changePage('bulletin')">公告消息</a></li>
         <li><a href="#" onclick="changePage('contact')">聯絡我們</a></li>
-        <li><a href="#" onclick="changePage('couple')">牽手良緣錄</a></li>
+        <li><a href="#" onclick="changePage('couple')" "myFunction()">牽手良緣錄</a></li>
     </ul>
 </nav>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById('menu');
+        x.style.display = 'block';
+        });
+    });
+</script>
 
 <!-- Banner -->
 <div id="aboutBanner"></div>
@@ -54,7 +63,6 @@
                 href="https://unsplash.com">Unsplash</a>.</p>
     </div>
 </footer>
-
 
 </body>
 <script>

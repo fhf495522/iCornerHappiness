@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <section class="wrapper style1">
     <div class="inner">
         <header class="align-center">

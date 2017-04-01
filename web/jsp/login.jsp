@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <div class="inner">
     <form method="post" action="#">
         <div class="row uniform">
