@@ -9,6 +9,10 @@ import com.iCornerHappiness.user.CUserView;
 public class PUserQueryView {
     private CUserQueryView view;
 
+    public PUserQueryView() {
+        view = new CUserQueryView();
+    }
+
     public CUserQueryView getView() {
         return view;
     }

@@ -1,6 +1,5 @@
 package com.iCornerHappiness.commons;
 
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -21,8 +20,8 @@ public class CSqlTools {
             StringBuffer strSql = new StringBuffer();
             strSql.append(" SELECT MAX(" + queryMaxView.getQueryFields()[0] + ") AS " + queryMaxView.getQueryFields()[0]);
             strSql.append(" FROM ").append(queryMaxView.getTableName()).append(" WHERE 1=1 ");
-            for (CSqlFieldView sqlFieldView : queryMaxView.getWhereConditions()) {
-                strSql.append(" AND ").append(sqlFieldView.getFieldName()).append(" = '").append(sqlFieldView.getValue()).append("'");
+            for (CSqlConditionView cSqlConditionView : queryMaxView.getWhereConditions()) {
+                strSql.append(" AND ").append(cSqlConditionView.getSql());
             }
             stmt = conn.prepareStatement(strSql.toString());
             resultSet = stmt.executeQuery();
@@ -54,13 +53,14 @@ public class CSqlTools {
                 }
             }
             strSql.append(" FROM ").append(sqlQueryView.getTableName()).append(" WHERE 1=1 ");
-            for (CSqlFieldView sqlFieldView : sqlQueryView.getWhereConditions()) {
-                strSql.append(" AND ").append(sqlFieldView.getFieldName()).append(" = '").append(sqlFieldView.getValue()).append("'");
+            for (CSqlConditionView sqlConditionView : sqlQueryView.getWhereConditions()) {
+                strSql.append(" AND ").append(sqlConditionView.getSql());
             }
             strSql.append(" ORDER BY NULL");
             for (CSqlOrderView sqlOrderView : sqlQueryView.getSqlOrderViews()) {
                 strSql.append(",").append(sqlOrderView.getFieldName()).append(" ").append(sqlOrderView.getOrderType());
             }
+            System.out.println("sql = " + strSql.toString());
             stmt = conn.prepareStatement(strSql.toString());
             resultSet = stmt.executeQuery();
             while (resultSet.next()) {
@@ -129,23 +129,15 @@ public class CSqlTools {
                 idx++;
             }
 
-            strSql.append("  WHERE ");
-            idx = 0;
-            for (CSqlFieldView whereField : updateView.getWhereConditions()) {
-                if (idx != 0) {
-                    strSql.append("  AND ");
-                }
-                strSql.append(whereField.getFieldName() + " = ? ");
-                idx++;
+            strSql.append("  WHERE 1=1 ");
+            for (CSqlConditionView whereField : updateView.getWhereConditions()) {
+                strSql.append(whereField.getSql());
             }
 
             stmt = conn.prepareStatement(strSql.toString());
             idx = 0;
-            for (CSqlFieldView fieldName : updateView.getFieldViews()) {
-                decodeStatementParameter(stmt, ++idx, fieldName);
-            }
-            for (CSqlFieldView fieldName : updateView.getWhereConditions()) {
-                decodeStatementParameter(stmt, ++idx, fieldName);
+            for (CSqlFieldView cSqlFieldView : updateView.getFieldViews()) {
+                decodeStatementParameter(stmt, ++idx, cSqlFieldView);
             }
 
             stmt.executeUpdate();
@@ -206,22 +198,14 @@ public class CSqlTools {
         try {
             StringBuffer strSql = new StringBuffer();
             strSql.append(" DELETE FROM " + deleteView.getTableName());
-            strSql.append("  WHERE ");
+            strSql.append("  WHERE 1=1 ");
             int idx = 0;
-            for (CSqlFieldView whereField : deleteView.getWhereConditions()) {
-                if (idx != 0) {
-                    strSql.append("  AND ");
-                }
-                strSql.append(whereField.getFieldName() + " = ? ");
-                idx++;
+            for (CSqlConditionView whereField : deleteView.getWhereConditions()) {
+                strSql.append(whereField.getSql());
+
             }
 
             stmt = conn.prepareStatement(strSql.toString());
-            idx = 0;
-            for (CSqlFieldView fieldName : deleteView.getWhereConditions()) {
-                decodeStatementParameter(stmt, ++idx, fieldName);
-            }
-
             stmt.execute();
 
         } catch (SQLException e) {

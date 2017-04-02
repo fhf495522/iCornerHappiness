@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class PUserManager {
 
-    // todo login
+    // login
     public static PUserView login(String userId, String password){
         // 依照帳密取得 CUserView
         // 找不到則登入失敗
@@ -38,7 +38,7 @@ public class PUserManager {
         return pUserView;
     }
 
-    // todo add User
+    // add User
     public static void addUser(PUserView pUserView){
         // insert to db
         Connection conn = null;
@@ -66,11 +66,17 @@ public class PUserManager {
                     pUserList.add(new PUserView(cView));
                 }
             }
-        } catch (CornerException e) {
+        } catch (CommonsException | CornerException  e) {
             e.printStackTrace();
         } finally {
             CDBTools.closeConnection(conn);
         }
         return pUserList;
+    }
+
+    // todo 更新會員資料
+    public PUserView update(PUserView pUserView){
+
+        return pUserView;
     }
 }

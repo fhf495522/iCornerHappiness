@@ -12,6 +12,10 @@ public class PUserView {
     private CUserView userView;
     private boolean isLoginSuccess;
 
+    public PUserView() {
+        userView = new CUserView();
+    }
+
     public PUserView(CUserView userView) {
         this.userView = userView;
     }

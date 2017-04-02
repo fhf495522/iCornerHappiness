@@ -1,4 +1,4 @@
-CREATE TABLE tblsitecontent
+CREATE TABLE corner.tblsitecontent
 (
   content      VARCHAR(20) NOT NULL,
   contentorder INT(11)     NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE tblsitecontent
 )
   DEFAULT CHARSET = utf8;
 
-CREATE TABLE tbluser
+CREATE TABLE corner.tbluser
 (
   account        INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   username       VARCHAR(20),
@@ -43,4 +43,4 @@ CREATE TABLE tbluser
 )
   DEFAULT CHARSET = utf8;
 CREATE UNIQUE INDEX unique_account
-  ON user (account);
+  ON corner.tbluser (account);
