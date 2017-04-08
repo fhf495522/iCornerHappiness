@@ -1,11 +1,9 @@
 package com.iCornerHappiness.user;
 
 import com.iCornerHappiness.commons.CMd5Tools;
-import com.iCornerHappiness.commons.CSqlTools;
 import com.iCornerHappiness.commons.CView;
 import com.iCornerHappiness.db.CSqlMapping;
 import com.iCornerHappiness.enumeration.*;
-import com.iCornerHappiness.exception.CornerException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -406,7 +404,7 @@ public class CUserView extends CView {
         setMobile(resultSet.getString(CSqlMapping.FLDMOBILE));
         setAddress(resultSet.getString(CSqlMapping.FLDADDRESS));
         setHome(resultSet.getString(CSqlMapping.FLDHOME));
-        setBirthday(resultSet.getDate(CSqlMapping.FLDBIRTHDAT));
+        setBirthday(resultSet.getDate(CSqlMapping.FLDBIRTHDAY));
         setHeight(resultSet.getInt(CSqlMapping.FLDHEIGHT));
         setWeight(resultSet.getInt(CSqlMapping.FLDWEIGHT));
         setBloodType(resultSet.getString(CSqlMapping.FLDBLOODTYPE)==null?null:EBloodType.valueOf(resultSet.getString(CSqlMapping.FLDBLOODTYPE)));

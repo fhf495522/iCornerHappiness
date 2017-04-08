@@ -2,8 +2,10 @@ package com.iCornerHappiness.user;
 
 import com.iCornerHappiness.commons.*;
 import com.iCornerHappiness.db.CSqlMapping;
+import com.iCornerHappiness.enumeration.EBloodType;
 import com.iCornerHappiness.enumeration.ECity;
 import com.iCornerHappiness.exception.CornerException;
+import com.iCornerHappiness.processer.PUserView;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class CUser {
         queryView.setWhereCondition(CSqlMapping.FLDUSEDID, userId);
         queryView.setWhereCondition(CSqlMapping.FLDPASSWORD, CMd5Tools.encode(password));
         ArrayList<CUserView> cUserViews = CSqlTools.selectList(obj, conn, queryView);
-        if (cUserViews.size() == 0){
+        if (cUserViews.size() == 0) {
             cUserView = null;
         } else {
             cUserView = cUserViews.get(0);
@@ -38,25 +40,25 @@ public class CUser {
         insertView.setFieldView(CSqlMapping.FLDUSERNAME, cUserView.getUserName());
         insertView.setFieldView(CSqlMapping.FLDUSEDID, cUserView.getUserId());
         insertView.setFieldView(CSqlMapping.FLDPASSWORD, cUserView.getPassword());
-        insertView.setFieldView(CSqlMapping.FLDGENDER, cUserView.getGender()==null?null:cUserView.getGender().toString());
+        insertView.setFieldView(CSqlMapping.FLDGENDER, cUserView.getGender() == null ? null : cUserView.getGender().toString());
         insertView.setFieldView(CSqlMapping.FLDPHONE, cUserView.getPhone());
         insertView.setFieldView(CSqlMapping.FLDMOBILE, cUserView.getMobile());
         insertView.setFieldView(CSqlMapping.FLDADDRESS, cUserView.getAddress());
         insertView.setFieldView(CSqlMapping.FLDHOME, cUserView.getHome());
-        insertView.setFieldView(CSqlMapping.FLDBIRTHDAT, CDateTools.getStrDate(cUserView.getBirthday()));
+        insertView.setFieldView(CSqlMapping.FLDBIRTHDAY, CDateTools.getStrDate(cUserView.getBirthday()));
         insertView.setFieldView(CSqlMapping.FLDHEIGHT, cUserView.getHeight());
         insertView.setFieldView(CSqlMapping.FLDWEIGHT, cUserView.getWeight());
-        insertView.setFieldView(CSqlMapping.FLDBLOODTYPE, cUserView.getBloodType()==null?null:cUserView.getBloodType().toString());
+        insertView.setFieldView(CSqlMapping.FLDBLOODTYPE, cUserView.getBloodType() == null ? null : cUserView.getBloodType().toString());
         insertView.setFieldView(CSqlMapping.FLDISSMOKING, cUserView.isSmoking());
         insertView.setFieldView(CSqlMapping.FLDISVEGETARIAN, cUserView.isVegetarian());
         insertView.setFieldView(CSqlMapping.FLDISDRINKING, cUserView.isDrinking());
-        insertView.setFieldView(CSqlMapping.FLDZODIAC, cUserView.getZodiac()==null?null:cUserView.getZodiac().toString());
-        insertView.setFieldView(CSqlMapping.FLDRELIGION, cUserView.getReligion()==null?null:cUserView.getReligion().toString());
-        insertView.setFieldView(CSqlMapping.FLDEDUCATION, cUserView.getEducation()==null?null:cUserView.getEducation().toString());
+        insertView.setFieldView(CSqlMapping.FLDZODIAC, cUserView.getZodiac() == null ? null : cUserView.getZodiac().toString());
+        insertView.setFieldView(CSqlMapping.FLDRELIGION, cUserView.getReligion() == null ? null : cUserView.getReligion().toString());
+        insertView.setFieldView(CSqlMapping.FLDEDUCATION, cUserView.getEducation() == null ? null : cUserView.getEducation().toString());
         insertView.setFieldView(CSqlMapping.FLDGRADUATESCHOOL, cUserView.getGraduateSchool());
         insertView.setFieldView(CSqlMapping.FLDGRADUATEDEPART, cUserView.getGraduateDepart());
-        insertView.setFieldView(CSqlMapping.FLDCAREER, cUserView.getCareer()==null?null:cUserView.getCareer().toString());
-        insertView.setFieldView(CSqlMapping.FLDWORKCITY, cUserView.getWorkCity()==null?null:cUserView.getWorkCity().toString());
+        insertView.setFieldView(CSqlMapping.FLDCAREER, cUserView.getCareer() == null ? null : cUserView.getCareer().toString());
+        insertView.setFieldView(CSqlMapping.FLDWORKCITY, cUserView.getWorkCity() == null ? null : cUserView.getWorkCity().toString());
         insertView.setFieldView(CSqlMapping.FLDCOMPANY, cUserView.getCompany());
         insertView.setFieldView(CSqlMapping.FLDPOSITION, cUserView.getPosition());
         insertView.setFieldView(CSqlMapping.FLDISLIVETOGETHER, cUserView.isLiveTogether());
@@ -69,15 +71,96 @@ public class CUser {
 
     public ArrayList<CUserView> getUserList(Connection conn, CUserQueryView cUserQueryView) throws CommonsException, CornerException {
         CSqlView queryView = new CSqlView(table);
+        ArrayList<CUserView> cUserViews = null;
+
         // query field (all)
-//        queryView.setQueryFields();
+        queryView.setQueryFields(CSqlMapping.FLDUSERNAME, CSqlMapping.FLDGENDER, CSqlMapping.FLDBIRTHDAY,
+                CSqlMapping.FLDHEIGHT, CSqlMapping.FLDWEIGHT, CSqlMapping.FLDBLOODTYPE, CSqlMapping.FLDEDUCATION,
+                CSqlMapping.FLDADDRESS, CSqlMapping.FLDWORKCITY);
         // todo where
         // 範例
-        queryView.setWhereCondition(CSqlMapping.FLDWORKCITY, EOperator.IN, new String[]{ECity.City1.toString(),ECity.City2.toString()});
-        queryView.setWhereCondition(CSqlMapping.FLDUSEDID, EOperator.LIKE, "22");
-        queryView.setWhereCondition(CSqlMapping.FLDBIRTHDAT, EOperator.BETWEEN, "2017-01-01", "2017-05-01");
+//        queryView.setWhereCondition(CSqlMapping.FLDWORKCITY, EOperator.IN, new String[]{ECity.City1.toString(),ECity.City2.toString()});
+//        queryView.setWhereCondition(CSqlMapping.FLDUSEDID, EOperator.LIKE, "22");
+//        queryView.setWhereCondition(CSqlMapping.FLDBIRTHDAY, EOperator.BETWEEN, "2017-01-01", "2017-05-01");
 
-        ArrayList<CUserView> cUserViews = CSqlTools.selectList(obj, conn, queryView);
+        queryView.setWhereCondition(CSqlMapping.FLDACCOUNT, cUserQueryView.getAccount());
+        if (cUserQueryView.getUpBoundOfHeight() != 0) {
+            queryView.setWhereCondition(CSqlMapping.FLDHEIGHT, EOperator.BETWEEN, Integer.toString(cUserQueryView.getLowerBoundOfHeight()),
+                    Integer.toString(cUserQueryView.getUpBoundOfHeight()));
+        } else {
+            queryView.setWhereCondition(CSqlMapping.FLDHEIGHT, EOperator.GE, Integer.toString(cUserQueryView.getLowerBoundOfHeight()));
+        }
+        if (cUserQueryView.getUpBoundOfWeight() != 0) {
+            queryView.setWhereCondition(CSqlMapping.FLDWEIGHT, EOperator.BETWEEN, Integer.toString(cUserQueryView.getLowerBoundOfWeight()),
+                    Integer.toString(cUserQueryView.getUpBoundOfWeight()));
+        } else {
+            queryView.setWhereCondition(CSqlMapping.FLDWEIGHT, EOperator.GE, Integer.toString(cUserQueryView.getLowerBoundOfWeight()));
+        }
+        if (cUserQueryView.getBloodTypes() != null && cUserQueryView.getBloodTypes().size() != 0) {
+            queryView.setWhereCondition(CSqlMapping.FLDBLOODTYPE, EOperator.IN, (String[]) cUserQueryView.getBloodTypes().toArray(new String[0]));
+        }
+        if (cUserQueryView.getZodiacs() != null && cUserQueryView.getZodiacs().size() != 0) {
+            queryView.setWhereCondition(CSqlMapping.FLDZODIAC, EOperator.IN, (String[]) cUserQueryView.getZodiacs().toArray(new String[0]));
+        }
+        if (cUserQueryView.getEducations() != null && cUserQueryView.getEducations().size() != 0) {
+            queryView.setWhereCondition(CSqlMapping.FLDEDUCATION, EOperator.IN, (String[]) cUserQueryView.getEducations().toArray(new String[0]));
+        }
+        if (cUserQueryView.getNowLivingInCity() != null) {
+            queryView.setWhereCondition(CSqlMapping.FLDADDRESS, EOperator.LIKE, cUserQueryView.getNowLivingInCity().toString().substring(0, 2));
+        }
+        queryView.setWhereCondition(CSqlMapping.FLDWORKCITY, cUserQueryView.getWorkCity().toString());
+        if (cUserQueryView.getCareers() != null) {
+            queryView.setWhereCondition(CSqlMapping.FLDCAREER, EOperator.IN, (String[]) cUserQueryView.getCareers().toArray(new String[0]));
+        }
+        ArrayList<CUserView> cUserViewsTemp = CSqlTools.selectList(obj, conn, queryView);
+        if (cUserViewsTemp != null && cUserViewsTemp.size() != 0) {
+            cUserViews = new ArrayList<>();
+            for (CUserView cView : cUserViewsTemp) {
+                if (cUserQueryView.getAstrologicals() != null && cUserQueryView.getAstrologicals().contains(cView.getAstrological())) {
+                    if (cUserQueryView.getUpBoundOfAge() != 0 && cUserQueryView.getUpBoundOfAge() >= cUserQueryView.getLowerBoundOfAge()) {
+                        if (cView.getAge() >= cUserQueryView.getLowerBoundOfAge() && cView.getAge() <= cUserQueryView.getUpBoundOfAge()) {
+                            cUserViews.add(cView);
+                        }
+                    } else if (cUserQueryView.getUpBoundOfAge() == 0 && cView.getAge() >= cUserQueryView.getLowerBoundOfAge()) {
+                        cUserViews.add(cView);
+                    }
+                }
+            }
+        }
         return cUserViews;
+    }
+
+    public void update(Connection conn, CUserView userView) throws CommonsException {
+        CSqlView updateView = new CSqlView(table);
+        updateView.setFieldView(CSqlMapping.FLDACCOUNT, userView.getAccount());
+        updateView.setFieldView(CSqlMapping.FLDUSERNAME, userView.getUserName());
+        updateView.setFieldView(CSqlMapping.FLDUSEDID, userView.getUserId());
+        updateView.setFieldView(CSqlMapping.FLDPASSWORD, userView.getPassword());
+        updateView.setFieldView(CSqlMapping.FLDGENDER, userView.getGender() == null ? null : userView.getGender().toString());
+        updateView.setFieldView(CSqlMapping.FLDPHONE, userView.getPhone());
+        updateView.setFieldView(CSqlMapping.FLDMOBILE, userView.getMobile());
+        updateView.setFieldView(CSqlMapping.FLDADDRESS, userView.getAddress());
+        updateView.setFieldView(CSqlMapping.FLDHOME, userView.getHome());
+        updateView.setFieldView(CSqlMapping.FLDBIRTHDAY, CDateTools.getStrDate(userView.getBirthday()));
+        updateView.setFieldView(CSqlMapping.FLDHEIGHT, userView.getHeight());
+        updateView.setFieldView(CSqlMapping.FLDWEIGHT, userView.getWeight());
+        updateView.setFieldView(CSqlMapping.FLDBLOODTYPE, userView.getBloodType() == null ? null : userView.getBloodType().toString());
+        updateView.setFieldView(CSqlMapping.FLDISSMOKING, userView.isSmoking());
+        updateView.setFieldView(CSqlMapping.FLDISVEGETARIAN, userView.isVegetarian());
+        updateView.setFieldView(CSqlMapping.FLDISDRINKING, userView.isDrinking());
+        updateView.setFieldView(CSqlMapping.FLDZODIAC, userView.getZodiac() == null ? null : userView.getZodiac().toString());
+        updateView.setFieldView(CSqlMapping.FLDRELIGION, userView.getReligion() == null ? null : userView.getReligion().toString());
+        updateView.setFieldView(CSqlMapping.FLDEDUCATION, userView.getEducation() == null ? null : userView.getEducation().toString());
+        updateView.setFieldView(CSqlMapping.FLDGRADUATESCHOOL, userView.getGraduateSchool());
+        updateView.setFieldView(CSqlMapping.FLDGRADUATEDEPART, userView.getGraduateDepart());
+        updateView.setFieldView(CSqlMapping.FLDCAREER, userView.getCareer() == null ? null : userView.getCareer().toString());
+        updateView.setFieldView(CSqlMapping.FLDWORKCITY, userView.getWorkCity() == null ? null : userView.getWorkCity().toString());
+        updateView.setFieldView(CSqlMapping.FLDCOMPANY, userView.getCompany());
+        updateView.setFieldView(CSqlMapping.FLDPOSITION, userView.getPosition());
+        updateView.setFieldView(CSqlMapping.FLDISLIVETOGETHER, userView.isLiveTogether());
+        updateView.setFieldView(CSqlMapping.FLDLINEID, userView.getLineId());
+        updateView.setFieldView(CSqlMapping.FLDEMAIL, userView.getEmail());
+        updateView.setFieldView(CSqlMapping.FLDHOBBIES, userView.getHobbies());
+        CSqlTools.updateSql(conn, updateView);
     }
 }
