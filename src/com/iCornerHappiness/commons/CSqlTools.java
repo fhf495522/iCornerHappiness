@@ -131,7 +131,7 @@ public class CSqlTools {
 
             strSql.append("  WHERE 1=1 ");
             for (CSqlConditionView whereField : updateView.getWhereConditions()) {
-                strSql.append(whereField.getSql());
+                strSql.append(" AND ").append(whereField.getSql());
             }
 
             stmt = conn.prepareStatement(strSql.toString());
