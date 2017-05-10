@@ -5,8 +5,8 @@
     request.setCharacterEncoding("UTF-8");
     PUserView pUserView = new PUserView();
     // todo ------  encode PUserView  ------
-    pUserView.setUserName(request.getParameter("name"));
-    pUserView.setEmail(request.getParameter("email"));
+    pUserView.setUserName(request.getParameter("userName"));
+    pUserView.setUserId(request.getParameter("userId"));
 
     
 

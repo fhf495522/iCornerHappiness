@@ -1,6 +1,5 @@
 package com.iCornerHappiness.user;
 
-import com.iCornerHappiness.commons.CMd5Tools;
 import com.iCornerHappiness.commons.CView;
 import com.iCornerHappiness.db.CSqlMapping;
 import com.iCornerHappiness.enumeration.*;

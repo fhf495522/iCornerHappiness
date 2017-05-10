@@ -6,10 +6,10 @@
     <form id="form" action="../action/addUser.jsp" method="POST">
         <div class="row uniform">
             <div class="4u 12u$(small)">
-                <input type="text" name="name" id="name" value="" placeholder="姓名" />
+                <input type="text" name="userName" id="userName" value="" placeholder="姓名" />
             </div>
             <div class="4u 12u$(small)">
-                <input type="email" name="email" id="email" value="" placeholder="身分證字號" />
+                <input type="text" name="userId" id="userId" value="" placeholder="身分證字號" />
             </div>
             <div class="2u 12u$(small)">
                 <input type="radio" id="male" name="priority" checked>
