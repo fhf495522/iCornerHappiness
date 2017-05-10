@@ -31,7 +31,7 @@
         <li><a href="#" onclick="changePage('notice')">注意事項</a></li>
         <li><a href="#" onclick="changePage('bulletin')">公告消息</a></li>
         <li><a href="#" onclick="changePage('contact')">聯絡我們</a></li>
-        <li><a href="#" onclick="changePage('couple')" "myFunction()">牽手良緣錄</a></li>
+        <li><a href="#" onclick="changePage('couple')">牽手良緣錄</a></li>
     </ul>
 </nav>
 

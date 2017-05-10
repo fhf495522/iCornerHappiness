@@ -1,10 +1,9 @@
 <%@ page import="com.iCornerHappiness.enumeration.EZodiac" %>
-<%@ page import="com.iCornerHappiness.enumeration.EAstrological" %>
 <%@ page import="com.iCornerHappiness.enumeration.EReligion" %>
 <%@ page import="com.iCornerHappiness.enumeration.EEducation" %>
 <%@ page pageEncoding="UTF-8"%>
 <div class="inner">
-    <form method="post" action="#">
+    <form id="form" action="../action/addUser.jsp" method="POST">
         <div class="row uniform">
             <div class="4u 12u$(small)">
                 <input type="text" name="name" id="name" value="" placeholder="姓名" />
@@ -182,19 +181,18 @@
                 <textarea name="pro" id="pro" placeholder="自身優點" rows="3"></textarea>
             </div>
 
-
-
             <!-- Break -->
             <div class="12u$">
                 <div class="12u$">
-                <!textarea name="message" id="message" placeholder="其他說明" rows="6"></textarea>
-            </div>
-            <!-- Break -->
-            <div class="12u$">
-                <ul class="actions">
-                    <li><!input type="submit" value="儲存" onclick="changePage('reserve')" /></li>
-                    <li><!input type="reset" value="重填" class="alt" /></li>
-                </ul>
+                    <textarea name="message" id="message" placeholder="其他說明" rows="6"></textarea>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                    <ul class="actions">
+                        <li><input type="submit" value="新增" onclick="addUser()" /></li>
+                        <li><input type="reset" value="重填" class="alt" /></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </form>
