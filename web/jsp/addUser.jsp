@@ -181,9 +181,7 @@
             <div class="6u 12u">
                 <textarea name="pro" id="pro" placeholder="自身優點" rows="3"></textarea>
             </div>
-            <div class="6u$ 12u$">
-                <textarea name="con" placeholder="自身缺點" rows="3"></textarea>
-            </div>
+
 
 
             <!-- Break -->
