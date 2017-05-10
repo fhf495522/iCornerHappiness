@@ -2,7 +2,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <script src="assets/js/jquery.mindownload.js"></script>
     <title>iの轉角幸福&nbsp;&nbsp;i&nbsp;の&nbsp;Corner of happiness - Urban by TEMPLATED</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
@@ -36,14 +35,6 @@
     </ul>
 </nav>
 
-<script>
-    function myFunction() {
-        var x = document.getElementById('menu');
-        x.style.display = 'block';
-        });
-    });
-</script>
-
 <!-- Banner -->
 <div id="aboutBanner"></div>
 
@@ -67,7 +58,7 @@
 </body>
 <script>
     $(document).ready(function () {
-        changePage("about")
+        changePage("reserve_n")
     });
 
     function changePage(fileName){
@@ -78,6 +69,9 @@
         }
 
         $("#main").load("jsp/" + fileName+".jsp");
+
+        $("#menu").removeClass("visible");
+
     }
 </script>
 </html>

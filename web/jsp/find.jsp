@@ -9,10 +9,10 @@
         <div class="12u$ 12u$(medium)" id="searchCondition">
             <form method="post" action="#">
                 <div class="row uniform">
-                    <div class="12u$">
+                    <div class="2u">
                         <input type="text" name="name" id="name" value="" placeholder="會員編號" />
                     </div>
-                    <div class="12u$">
+                    <div class="2u$">
                         <div class="select-wrapper">
                             <select name="category" id="photo">
                                 <option value="1">-- 照片 --</option>
@@ -176,55 +176,55 @@
                     </div>
                     <!--生肖-->
                     <div class="12u$">
-                        <input type="checkbox" id="zodiac_all" name="copy">
+                        <input type="checkbox" id="zodiac_all" name="zodiac">
                         <label for="zodiac_all">生肖不拘</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_2" name="copy">
+                        <input type="checkbox" id="zodiac_2" name="zodiac">
                         <label for="zodiac_2">鼠</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_3" name="copy">
+                        <input type="checkbox" id="zodiac_3" name="zodiac">
                         <label for="zodiac_3">牛</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_5" name="copy">
+                        <input type="checkbox" id="zodiac_5" name="zodiac">
                         <label for="zodiac_5">虎</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_6" name="copy">
+                        <input type="checkbox" id="zodiac_6" name="zodiac">
                         <label for="zodiac_6">兔</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_7" name="copy">
+                        <input type="checkbox" id="zodiac_7" name="zodiac">
                         <label for="zodiac_7">龍</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_8" name="copy">
+                        <input type="checkbox" id="zodiac_8" name="zodiac">
                         <label for="zodiac_8">蛇</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_9" name="copy">
+                        <input type="checkbox" id="zodiac_9" name="zodiac">
                         <label for="zodiac_9">馬</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_10" name="copy">
+                        <input type="checkbox" id="zodiac_10" name="zodiac">
                         <label for="zodiac_10">羊</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_11" name="copy">
+                        <input type="checkbox" id="zodiac_11" name="zodiac">
                         <label for="zodiac_11">猴</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_12" name="copy">
+                        <input type="checkbox" id="zodiac_12" name="zodiac">
                         <label for="zodiac_12">雞</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_1" name="copy">
+                        <input type="checkbox" id="zodiac_1" name="zodiac">
                         <label for="zodiac_1">狗</label>
                     </div>
                     <div class="2u 12u$(small)">
-                        <input type="checkbox" id="zodiac_4" name="copy">
+                        <input type="checkbox" id="zodiac_4" name="zodiac">
                         <label for="zodiac_4">豬</label>
                     </div>
                     <!--學歷-->
@@ -489,6 +489,7 @@
 <script>
     function hideCondition() {
         $('#searchCondition').hide();
+        
 
     }
 </script>
