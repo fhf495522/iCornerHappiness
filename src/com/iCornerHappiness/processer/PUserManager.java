@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class PUserManager {
 
-    // todo login
-    public static PUserView login(String userId, String password){
+    // login
+    public static PUserView login(String userId, String password) {
         // 依照帳密取得 CUserView
         // 找不到則登入失敗
         Connection conn = null;
@@ -25,9 +25,9 @@ public class PUserManager {
             conn = CDBTools.getConnection();
             CUserView cUserView = new CUser().login(conn, userId, password);
             pUserView = new PUserView(cUserView);
-            if (cUserView!=null){
+            if (cUserView != null) {
                 pUserView.setLoginSuccess(true);
-            }else {
+            } else {
                 pUserView.setLoginSuccess(false);
             }
         } catch (CommonsException | CornerException e) {
@@ -38,8 +38,8 @@ public class PUserManager {
         return pUserView;
     }
 
-    // todo add User
-    public static void addUser(PUserView pUserView){
+    // add User
+    public static void addUser(PUserView pUserView) {
         // insert to db
         Connection conn = null;
         try {
@@ -54,23 +54,42 @@ public class PUserManager {
     }
 
     // todo search for match
-    public static ArrayList<PUserView> getUserList(PUserQueryView pUserQueryView){
+    public static ArrayList<PUserView> getUserList(PUserQueryView pUserQueryView) {
         Connection conn = null;
         ArrayList<PUserView> pUserList = null;
         try {
             conn = CDBTools.getConnection();
-            ArrayList<CUserView> cUserViews = new CUser().getUserList(conn, pUserQueryView.getView());
-            if (cUserViews!=null && cUserViews.size()!=0){
+            ArrayList<CUserView> cUserViews = new CUser().getUserList(conn, pUserQueryView.getUserQueryView());
+            if (cUserViews != null && cUserViews.size() != 0) {
                 pUserList = new ArrayList<>();
-                for (CUserView cView : cUserViews){
+                for (CUserView cView : cUserViews) {
                     pUserList.add(new PUserView(cView));
                 }
             }
-        } catch (CornerException e) {
+        } catch (CommonsException | CornerException e) {
             e.printStackTrace();
         } finally {
             CDBTools.closeConnection(conn);
         }
         return pUserList;
+    }
+
+    // todo 更新會員資料
+    public PUserView update(PUserView pUserView) {
+        Connection conn = null;
+        PUserView updatedUserView = null;
+        try {
+            conn = CDBTools.getConnection();
+            if (pUserView.isLoginSuccess()) {
+                new CUser().update(conn, pUserView.getUserView());
+                conn.commit();
+            }
+            updatedUserView = login(pUserView.getUserId(), pUserView.getPassword());
+        } catch (CommonsException | CornerException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CDBTools.closeConnection(conn);
+        }
+        return updatedUserView;
     }
 }

@@ -29,7 +29,7 @@ public class CSqlMapping {
     public final static String FLDMOBILE = "mobile";
     public final static String FLDADDRESS = "address";
     public final static String FLDHOME = "home";
-    public final static String FLDBIRTHDAT = "birthday" ;
+    public final static String FLDBIRTHDAY = "birthday" ;
     public final static String FLDHEIGHT = "height";
     public final static String FLDWEIGHT = "weight";
     public final static String FLDBLOODTYPE = "bloodtype";

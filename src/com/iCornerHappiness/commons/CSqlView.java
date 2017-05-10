@@ -1,7 +1,8 @@
 package com.iCornerHappiness.commons;
 
+import com.iCornerHappiness.exception.CornerException;
+
 import java.util.ArrayList;
-import java.util.Optional;
 
 /**
  * Created by 025329 on 2015/9/25.
@@ -10,7 +11,7 @@ public class CSqlView {
     private String tableName;
     private String[] queryFields;
     private ArrayList<CSqlFieldView> fieldViews = new ArrayList<CSqlFieldView>();
-    private ArrayList<CSqlFieldView> whereConditions = new ArrayList<CSqlFieldView>();
+    private ArrayList<CSqlConditionView> whereConditions = new ArrayList<>();
     private ArrayList<CSqlOrderView> sqlOrderViews = new ArrayList<CSqlOrderView>();
 
     public CSqlView(String tableName) {
@@ -49,17 +50,44 @@ public class CSqlView {
         this.fieldViews.add(new CSqlFieldView(fieldName, value));
     }
 
-    protected ArrayList<CSqlFieldView> getWhereConditions() {
+    public void setFieldView(String fieldName, Boolean value) {
+        this.fieldViews.add(new CSqlFieldView(fieldName, value));
+    }
+
+    protected ArrayList<CSqlConditionView> getWhereConditions() {
         return whereConditions;
     }
 
     public void setWhereCondition(String fieldName, String value) {
-        this.whereConditions.add(new CSqlFieldView(fieldName, value));
+        this.whereConditions.add(new CSqlConditionView(fieldName, EOperator.EQ, value));
     }
 
     public void setWhereCondition(String fieldName, int value) {
-        this.whereConditions.add(new CSqlFieldView(fieldName, value));
+        this.whereConditions.add(new CSqlConditionView(fieldName, EOperator.EQ, value));
     }
+
+    public void setWhereCondition(String fieldName, EOperator operator, String value) {
+        this.whereConditions.add(new CSqlConditionView(fieldName, operator, value));
+    }
+
+    public void setWhereCondition(String fieldName, EOperator operator, int value) {
+        this.whereConditions.add(new CSqlConditionView(fieldName, operator, value));
+    }
+
+    public void setWhereCondition(String fieldName, EOperator operator, String[] values) throws CornerException {
+        if (operator != EOperator.IN){
+            throw new CornerException(fieldName + " must have operator" + EOperator.IN);
+        }
+        this.whereConditions.add(new CSqlConditionView(fieldName, operator, values));
+    }
+
+    public void setWhereCondition(String fieldName, EOperator operator, String minValues, String maxValues) throws CornerException {
+        if (operator != EOperator.BETWEEN){
+            throw new CornerException(fieldName + " must have operator" + EOperator.BETWEEN);
+        }
+        this.whereConditions.add(new CSqlConditionView(fieldName, operator, minValues, maxValues));
+    }
+
 
     protected boolean isWhereCondition() {
         return whereConditions.size() != 0;
